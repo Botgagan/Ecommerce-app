@@ -3,15 +3,27 @@ import { useParams } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
+import CommentSection from '../components/CommentSection';
+import axios from 'axios';
 
 const Product = () => {
 
  const {productId} = useParams();
      //console.log(productId)
- const {products,currency,addToCart} = useContext(ShopContext);
+ const {products,currency,addToCart,backendUrl} = useContext(ShopContext);
  const [productData,setProductData] = useState(false);
  const [image,setImage] = useState('');
  const [size,setSize] = useState();
+
+ const [commentCount, setCommentCount] = useState(0);
+
+useEffect(() => {
+  axios.get(backendUrl + `/api/comments/${productId}`).then((res) => {
+    if (res.data.success) {
+      setCommentCount(res.data.comments.length);
+    }
+  });
+}, [productId]);
 
  const fetchProductData = async () => {
     
@@ -60,7 +72,7 @@ const Product = () => {
                  <img className='w-3' src={assets.star_icon} alt="" />
                  <img className='w-3' src={assets.star_icon} alt="" />
                  <img className='w-3' src={assets.star_dull_icon} alt="" />
-                 <p className='pl-2'>(122)</p>
+                 <p className='pl-2'>({commentCount})</p>
                </div>
                <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
                <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
@@ -82,22 +94,34 @@ const Product = () => {
             </div>
       </div>
 
-        {/*  Description & Review Section*/}
-        <div className='mt-20'>
-          <div className='flex '>
-            <b className='border px-5 py-3 text-sm'>Description</b>
-            <p className='border px-5 py-3 text-sm'>Reviews(122)</p>
-          </div>
-          <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
-            <p>An e-commerce website is an online platform........................................................................................................................</p>
-            <p>E-commerce websites typically display products.....................................................................................................................</p>
-          </div>
+       {/* Description & Comments Section */}
+<div className="mt-20 border-t pt-10">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    
+    {/* Description */}
+    <div className="bg-white rounded-lg shadow-md p-6">
+      <h2 className="text-xl font-semibold mb-4">Product Description</h2>
+      <p className="text-gray-600 leading-relaxed mb-3">
+        An e-commerce website is an online platform that allows users to browse, purchase, and review products with ease.
+      </p>
+      <p className="text-gray-600 leading-relaxed">
+        These platforms typically showcase products with detailed information, images, and user feedback to enhance the shopping experience.
+      </p>
+    </div>
 
-          {/*  Display related Products*/}
+    {/* Comments */}
+    <div className="bg-white rounded-lg shadow-md p-6">
+      <h2 className="text-xl font-semibold mb-4">Customer Reviews</h2>
+      <CommentSection productId={productId} />
+    </div>
 
-          <RelatedProducts category={productData.category} subCategory={productData.subCategory}/>
+  </div>
 
-        </div>
+  {/* Related Products */}
+  <div className="mt-16">
+    <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
+  </div>
+</div>
     </div>
   ) : <div className='opacity-0'> </div>
 }

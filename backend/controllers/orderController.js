@@ -17,7 +17,8 @@ const razorpayInstance = new razorpay({
 // placing orders using COD method
 const placeOrder = async (req,res) => {
     try {
-        const {userId, items, amount, address} = req.body;
+        const { items, amount, address } = req.body;
+        const userId = req.user._id; // ✅ Use the user attached by auth middleware 
 
         const orderData = {
             userId,
@@ -44,7 +45,8 @@ const placeOrder = async (req,res) => {
 
 const placeOrderStripe = async (req,res) => {
     try {
-        const {userId, items, amount, address} = req.body
+        const { items, amount, address } = req.body;
+        const userId = req.user._id; // ✅ Use the user attached by auth middleware
         const { origin } = req.headers;
 
          const orderData = {
@@ -100,7 +102,8 @@ const placeOrderStripe = async (req,res) => {
 // Verify Stripe
 const verifyStripe = async (req,res) => {
 
-    const { orderId, success ,userId } = req.body
+    const { orderId, success } = req.body
+    const userId = req.user._id; // ✅ Use the user attached by auth middleware
 
     try {
         if (success === "true") {// if payment is success
@@ -124,7 +127,8 @@ const placeOrderRazorpay = async (req,res) => {
 
     try {
 
-        const {userId, items, amount, address} = req.body
+        const { items, amount, address } = req.body;
+        const userId = req.user._id; // ✅ Use the user attached by auth middleware
 
          const orderData = {
             userId,
@@ -163,7 +167,8 @@ const placeOrderRazorpay = async (req,res) => {
 const verifyRazorpay = async (req,res) => {
 
     try {
-        const { userId, razorpay_order_id } = req.body
+        const { razorpay_order_id } = req.body
+        const userId = req.user._id; // ✅ Use the user attached by auth middleware
 
         const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id)
         //console.log(orderInfo)
@@ -203,7 +208,8 @@ try {
 const userOrders = async (req,res) => {
     
 try {
-    const {userId} = req.body
+
+    const userId = req.user._id; // ✅ Use the user attached by auth middleware
     const orders  = await orderModel.find({userId})
     res.json({success: true, orders})
 
