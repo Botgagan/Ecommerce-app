@@ -67,8 +67,8 @@ const Add = ({ token }) => {
         <div className="fixed inset-0 z-50 bg-black bg-opacity-40 flex flex-col items-center justify-center">
           <div className="flex space-x-2">
             <span className="w-3 h-3 bg-white rounded-full animate-bounce"></span>
-            <span className="w-3 h-3 bg-white rounded-full animate-bounce delay-200"></span>
-            <span className="w-3 h-3 bg-white rounded-full animate-bounce delay-400"></span>
+            <span className="w-3 h-3 bg-white rounded-full animate-bounce delay-300"></span>
+            <span className="w-3 h-3 bg-white rounded-full animate-bounce delay-600"></span>
           </div>
           <p className="mt-4 text-white text-sm font-medium tracking-wide">Uploading product...</p>
         </div>

@@ -5,9 +5,9 @@ import productModel from "../models/productModel.js";
 const addProduct = async (req,res) => {
     try {
         const { name,description,price,category,subCategory,sizes,bestseller} = req.body;
-
+        //extracting this all information coming from frontend
         const image1 = req.files.image1 && req.files.image1[0] //image1 is array
-        const image2 = req.files.image2 && req.files.image2[0]
+        const image2 = req.files.image2 && req.files.image2[0]// extracting images coming from frontend
         const image3 = req.files.image3 && req.files.image3[0]
         const image4 = req.files.image4 && req.files.image4[0]
 

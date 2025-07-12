@@ -13,7 +13,7 @@ const loginUser = async (req,res) => {
     try {
         const {email,password} = req.body;
 
-        const user = await userModel.findOne({email});
+        const user = await userModel.findOne({email});// in user we are getting whole user model as user data
 
         if (!user) {
             return res.json({success:false, message: "user doesn't exists"})
@@ -22,7 +22,7 @@ const loginUser = async (req,res) => {
         const isMatch = await bcrypt.compare(password,user.password);
 
         if(isMatch) {
-            const token = createToken(user._id)
+            const token = createToken(user._id)//_id is created in user model in database
             res.json({success: true, token})
         }
         else {
@@ -40,7 +40,7 @@ const loginUser = async (req,res) => {
 const registerUser = async (req,res) => {
   try {
 
-    const { name, email, password } = req.body;
+    const { name, email, password } = req.body;// extracting name,email,password coming from frontend
 
     // Checking user already exists or not
     const exists = await userModel.findOne({email});

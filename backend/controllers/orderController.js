@@ -144,7 +144,7 @@ const placeOrderRazorpay = async (req,res) => {
         await newOrder.save()
 
         const options = {
-            amount : amount * 200,
+            amount : amount * 100,
             currency : currency.toUpperCase(),
             receipt : newOrder._id.toString()
         }

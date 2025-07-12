@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 
 const adminAuth = async(req,res,next) => {
     try {
-        const { token } = req.headers
+        const { token } = req.headers// we extract the token from headers coming from the frontend
         if (!token) {
             return res.json({success: false,message: "Not Authorized Login Admin"})      
         }
