@@ -53,7 +53,7 @@ To run the project locally, follow these steps:
 ### 1. 📦 Clone the Repository
 
 ```bash
-git clone https://github.com/Botgagan/ecommerce-site.git
+git clone https://github.com/Botgagan/Ecommerce-app.git
 
 cd frontend
 npm install
