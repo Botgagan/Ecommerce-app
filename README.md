@@ -17,7 +17,7 @@
 
 ## 🚀 Live Site  
 **🛒 Browse here →**(for frontend) https://ecommerce-app-frontend-psvbmxpwo.vercel.app
-                     (for backend) 
+                     (for admin panel) https://ecommerce-app-admin-8rh8rcra1.vercel.app 
 
 ---
 
