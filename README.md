@@ -16,7 +16,8 @@
 ---
 
 ## 🚀 Live Site  
-**🛒 Browse here →** [https://botgagan-store.vercel.app](https://botgagan-store.vercel.app)
+**🛒 Browse here →**(for frontend) https://ecommerce-app-frontend-psvbmxpwo.vercel.app
+                     (for backend) 
 
 ---
 
