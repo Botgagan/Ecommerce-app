@@ -5,8 +5,6 @@
 </p>
 
 <p align="center">
-  <a href="https://ecommerce-app-frontend-psvbmxpwo.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Frontend-Demo-green?style=flat-square" /></a>
-  <a href="https://ecommerce-app-admin-8rh8rcra1.vercel.app" target="_blank"><img src="https://img.shields.io/badge/Admin%20Panel-Demo-blue?style=flat-square" /></a>
   <img src="https://img.shields.io/badge/React-%2361DAFB.svg?style=flat-square&logo=react&logoColor=white" />
   <img src="https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=flat-square&logo=tailwind-css&logoColor=white" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
