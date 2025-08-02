@@ -16,7 +16,7 @@
 
 ## 🚀 Live Sites
 
-- 🌐 **Frontend:** [ecommerce-app-frontend.vercel.app](https://ecommerce-app-frontend-psvbmxpwo.vercel.app)  
+- 🌐 **Frontend:** [ecommerce-app-frontend.vercel.app](https://ecommerce-app-frontend-fn1vfp8wa.vercel.app/)  
 - 🛠️ **Admin Panel:** [ecommerce-app-admin.vercel.app](https://ecommerce-app-admin-8rh8rcra1.vercel.app)
 
 ---
